@@ -24,18 +24,19 @@ namespace WinFormsApp1
                 StringTools stringTools = new StringTools();
                 Encoding encoding = Encoding.GetEncoding(comboBox_Encoding.Text);
 
-                if (stringTools.DecodeHexString(textBox_hex.Text, encoding) == null)
+                if (textBox_hex.Text.Length % 2 == 0)
                 {
-                    textBox_hex.Text = string.Empty;
-                    textBox_string.Text = string.Empty;
-                    textBox_hex.Focus();
-
+                    if (stringTools.DecodeHexString(textBox_hex.Text, encoding) == null)
+                    {
+                        textBox_hex.Text = string.Empty;
+                        textBox_string.Text = string.Empty;
+                        textBox_hex.Focus();
+                    }
+                    else
+                    {
+                        textBox_string.Text = stringTools.DecodeHexString(textBox_hex.Text, encoding);
+                    }
                 }
-                else
-                {
-                    textBox_string.Text = stringTools.DecodeHexString(textBox_hex.Text, encoding);
-                }
-
             }
 
 
