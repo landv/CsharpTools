@@ -55,14 +55,20 @@ namespace WinFormsApp1
 
         private void textBox_hex_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            textBox_hex.SelectAll();
-            Clipboard.SetText(textBox_hex.SelectedText);
+            if (!string.IsNullOrEmpty(textBox_hex.Text))
+            {
+                textBox_hex.SelectAll();
+                Clipboard.SetText(textBox_hex.SelectedText);
+            }
         }
 
         private void textBox_string_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            textBox_string.SelectAll();
-            Clipboard.SetText(textBox_string.SelectedText);
+            if (!string.IsNullOrEmpty(textBox_string.Text))
+            {
+                textBox_string.SelectAll();
+                Clipboard.SetText(textBox_string.SelectedText);
+            }
         }
     }
 }
